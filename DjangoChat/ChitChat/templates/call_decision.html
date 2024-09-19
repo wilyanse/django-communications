@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Incoming Call</title>
+    <script>
+        var socket = new WebSocket('ws://your-domain/ws/call/');
+        
+        socket.onmessage = function(event) {
+            var data = JSON.parse(event.data);
+            if (data.status == 'accepted') {
+                alert("Call Accepted");
+            } else if (data.status == 'rejected') {
+                alert("Call Rejected");
+            }
+        };
+
+        function sendDecision(decision) {
+            socket.send(JSON.stringify({'decision': decision}));
+        }
+    </script>
+</head>
+<body>
+    <h1>Incoming Call</h1>
+    <button onclick="sendDecision('accept')">Accept</button>
+    <button onclick="sendDecision('reject')">Reject</button>
+</body>
+</html>

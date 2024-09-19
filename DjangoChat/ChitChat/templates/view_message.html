@@ -1,0 +1,30 @@
+<!-- email_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Details</title>
+</head>
+<body>
+    <a href="{% url 'email_page' %}">Back to Email Page</a>
+    <h1>{{ email.subject }}</h1>
+    <p>From: {{ email.sender }}</p>
+    <p>Date: {{ email.date }}</p>
+    <p>{{ email.body }}</p>
+
+    <h2>Attachments:</h2>
+    <ul>
+        {% for attachment in email.attachments %}
+            <li>
+                <a href="data:application/octet-stream;base64,{{ attachment.data }}" download="{{ attachment.filename }}">
+                    {{ attachment.filename }}
+                </a>
+            </li>
+        {% empty %}
+            <li>No attachments.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

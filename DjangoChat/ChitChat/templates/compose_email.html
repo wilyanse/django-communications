@@ -1,0 +1,30 @@
+<!-- compose_email.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compose Email</title>
+</head>
+<body>
+    <a href="{% url 'email_page' %}">Back to Email Page</a>
+    <h1>Compose Email</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="recipient">To:</label>
+        <input type="email" id="recipient" name="recipient" required><br>
+        
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required><br>
+        
+        <label for="body">Body:</label>
+        <textarea id="body" name="body" rows="10" cols="30" required></textarea><br>
+        
+        <label for="attachments">Attachments:</label>
+        <input type="file" id="attachments" name="attachments" multiple><br>
+        
+        <button type="submit">Send</button>
+    </form>
+
+</body>
+</html>

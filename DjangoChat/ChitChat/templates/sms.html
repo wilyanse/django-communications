@@ -1,0 +1,36 @@
+<!-- chat.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email between {{ username1 }} and {{ username2 }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'landing_page' %}">Back to Landing Page</a>
+    <a href="{% url 'messages_list' %}" class="button">Inbox</a>
+    <a href="{% url 'compose_message' %}" class="button">Compose Message</a>
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!-- email_inbox.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .email-item {
+            cursor: pointer;
+        }
+        .email-item:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'email_page' %}">Back to Email Page</a>
+    <h1>Inbox</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Snippet</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for email in emails %}
+                <tr class="email-item">
+                    <td><a href="{% url 'view_message' email.id %}">{{ email.subject }}</a></td>
+                    <td>{{ email.snippet }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">No emails found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

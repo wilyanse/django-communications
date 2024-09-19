@@ -1,0 +1,25 @@
+<!-- templates/compose_message.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compose Message</title>
+</head>
+<body>
+    <a href="{% url 'sms_page' %}">Back to SMS Page</a>
+    <h1>Compose Message</h1>
+
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>

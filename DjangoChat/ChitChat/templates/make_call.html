@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Make a Call</title>
+    <script src="//media.twiliocdn.com/sdk/js/client/v1.13/twilio.min.js"></script>
+</head>
+<body>
+    <a href="{% url 'landing_page' %}">Back to Landing Page</a>
+    <a href="{% url 'call_page' %}">Back to Call Page</a>
+    <h1>Make a Call</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Call</button>
+    </form>
+</body>
+</html>

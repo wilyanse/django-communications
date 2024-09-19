@@ -1,0 +1,7 @@
+<a href="{% url 'landing_page' %}">Back to Landing Page</a>
+<a href="{% url 'call_page' %}">Back to Call Page</a>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>

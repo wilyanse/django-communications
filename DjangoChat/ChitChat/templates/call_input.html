@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Incoming Call</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            alert('You have an incoming call. Please check the call input page.');
+        });
+    </script>
+</head>
+<body>
+    <h1>Incoming Call</h1>
+    <p>Press the button to accept or reject the call.</p>
+    
+    <form method="post" action="{% url 'handle_user_input' %}">
+        {% csrf_token %}
+        <button type="submit" name="action" value="accept">Accept Call</button>
+        <button type="submit" name="action" value="reject">Reject Call</button>
+    </form>
+</body>
+</html>

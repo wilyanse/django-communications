@@ -1,0 +1,19 @@
+<!-- templates/messages_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Messages</title>
+</head>
+<body>
+    <a href="{% url 'landing_page' %}">Back to Landing Page</a>
+    <a href="{% url 'sms_page' %}">Back to SMS</a>
+    <h1>Received Messages</h1>
+    <ul>
+        {% for message in messages %}
+            <li><strong>{{ message.from_number }}</strong>: {{ message.body }} ({{ message.received_at }})</li>
+        {% empty %}
+            <li>No messages received yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

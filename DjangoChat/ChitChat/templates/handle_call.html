@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accept or Reject Call</title>
+</head>
+<body>
+    <h1>Incoming Call</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button name="action" value="accept">Accept Call</button>
+        <button name="action" value="reject">Reject Call</button>
+    </form>
+</body>
+</html>

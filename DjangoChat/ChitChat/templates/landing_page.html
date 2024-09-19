@@ -1,0 +1,43 @@
+<!-- landing_page.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to Our Communication Platform</h1>
+    <div class="container">
+        <a href="{% url 'chat_room' username1 username2 %}" class="button">Chat</a>  <!-- Dynamic URL to chat room -->
+        <a href="{% url 'email_page' %}" class="button">Email</a>
+        <a href="{% url 'sms_page' %}" class="button">SMS</a>
+        <a href="{% url 'call_page' %}" class="button">Call</a>
+    </div>
+
+</body>
+</html>

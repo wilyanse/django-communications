@@ -1,0 +1,9 @@
+<!-- templates/sms/list_messages.html -->
+<a href="{% url 'landing_page' %}">Back to Landing Page</a>
+<a href="{% url 'sms_page' %}">Back to SMS</a>
+<h1>Received SMS Messages</h1>
+<ul>
+    {% for message in messages %}
+        <li><strong>{{ message.from_number }}:</strong> {{ message.message_body }}</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,42 @@
+<!-- email.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'landing_page' %}">Back to Landing Page</a>
+    <h1>Email Features</h1>
+    <div class="container">
+        <a href="{% url 'email_inbox' %}" class="button">Inbox</a>
+        <a href="{% url 'compose_email' %}" class="button">Compose Email</a>
+    </div>
+
+</body>
+</html>
